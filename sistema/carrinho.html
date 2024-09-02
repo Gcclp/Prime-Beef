@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Beef - Carrinho</title>
+    <link rel="stylesheet" href="carrinho.css">
+</head>
+<body>
+    <div class="cabecalho2">
+        <h1><a href="../index">PRIME BEEF </a></h1>
+        <button id="ir-ao-carrinho" class="botao-carrinho" style="display: none;"><img src="cart.png" alt="carrinho"></button>
+        <div class="subtitles">
+            <h4><a href="cardapio.pdf" target="_blank" class="botao-cardapio">Cardápio</a></h4>
+            <h4><a href="sistema" class="botao-cardapio">Delivery</a></h4>
+        </div>
+    </div>
+    <main>
+        <h2>Carrinho</h2>
+        <div class="cart-container">
+            <!-- Outros itens do carrinho aqui -->
+        </div>
+
+        <div id="pedido-modal" class="modal">
+            <div class="modal-content">
+            <span class="close-btn" onclick="closePedidoModal()">&times;</span>
+            <h2>Pedido:</h2>
+            <p id="pedido-details"></p>
+            </div>
+        </div>
+
+        <div class="delivery-options">
+            <p>Onde você deseja seu pedido?</p>
+            <input type="radio" id="pickup-radio" name="delivery-option" value="Retirar" onchange="selectDeliveryOption(this.value)">
+            <label for="pickup-radio">Retirar na Loja</label>
+            <input type="radio" id="delivery-radio" name="delivery-option" value="Entrega" onchange="selectDeliveryOption(this.value)">
+            <label for="delivery-radio">Entrega</label>
+        </div>
+
+
+        <div class="delivery-info">
+            <div>
+                <label for="name">Nome</label>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="phone">Celular</label>
+                <input type="text" id="phone" placeholder="(00) 00000-0000" maxlength="15">
+
+            </div>
+        </div>
+
+        <div id="address-fields" style="display: none;">
+            <div class="delivery-info1">
+                <div>
+                    <label for="street">Rua</label>
+                    <input type="text" id="street">
+                </div>
+                <div id="number-div">
+                    <label for="number">Nº</label>
+                    <input type="text" id="number">
+                </div>
+            </div>
+
+            <div class="delivery-info1">
+                <div>
+                    <label for="neighborhood">Bairro</label>
+                    <input type="text" id="bairro">
+                </div>
+                <div>
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento">
+                </div>
+            </div>
+        </div>
+        <!-- Adicione ao seu formulário -->
+<div id="payment-method">
+    <h3>Forma de Pagamento</h3>
+    <label>
+        <input type="radio" name="payment-method" value="Cartão de Crédito" required>
+        Cartão de Crédito
+    </label>
+    <label>
+        <input type="radio" name="payment-method" value="Cartão de Débito" required>
+        Cartão de Débito
+    </label>
+    <label>
+        <input type="radio" name="payment-method" value="Dinheiro" required>
+        Dinheiro/PIX
+    </label>
+</div>
+
+<div id="change-request" style="display: none;">
+    <label for="change-amount">Troco Necessário para (R$):</label>
+    <input type="number" id="change-amount" step="0.01" min="0" placeholder="Insira o valor do troco">
+</div>
+
+        <div class="total-info">
+
+            <p id="total">TOTAL: R$55,00</p>
+        </div>
+
+        <!-- Modal -->
+        <div id="order-modal" class="modal">
+            <div class="modal-content">
+            <span class="close-btn" onclick="closeOrderModal()">&times;</span>
+            <h2>Pedido Realizado</h2>
+            <p id="order-details"></p>
+            <p id="taxa-entrega"></p>
+            <p id="totalModal"></p>
+            <p>Tempo estimado de entrega: <span id="delivery-time"></span></p>
+            </div>
+        </div>
+
+
+
+
+    </main>
+
+    <button class="confirm-btn" onclick="finalizarCompra()">Confirmar Pedido</button>
+
+    <footer class="rodape">
+        <div class="contact-info">
+            <p>Telefone: (41) 99989-6520</p>
+            <p>Horário de Atendimento: Terça a Domingo das 18:00 às 23:00</p>
+            <p>Endereço: Rua Margarida Possebom da Cruz, 43 - Santo Antônio </p>
+        </div>
+        <div class="logo">
+            <h1><a href="../index">PRIME BEEF </a></h1>
+        </div>
+        <div class="social-media">
+            <img src="instagram (1).png" alt="Instagram">
+            <span>@primebeef_hamburgueria</span>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

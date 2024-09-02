@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+br {
+  margin-bottom: -0.5em;
+  line-height: 1;
+}
+
+html {
+  height: 100%;
+}
+
+.tela {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eee;
+  background: url("TELA.jpg") no-repeat center center/cover;
+  background-size: cover;
+}
+
+/* CABEÇALHO */
+.cabecalho2 {
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 27vh;
+  left: 0;
+  top: 0;
+  background: #000000;
+  border: 1px solid #000000;
+
+}
+
+.cabecalho2 h1 {
+  font-family: 'Playfair Display', serif;
+
+  text-align: center;
+  font-weight: 400;
+  font-size: 10vh;
+  line-height: 1;
+  color: #ffffff;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  padding: 0 75vh;
+  white-space: nowrap;
+
+
+}
+
+.botao-cardapio {
+  display: inline-block;
+  padding: 8px 5%;
+  background-color: #000000; 
+  color: #ffffff; 
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  position: relative;
+}
+
+.cabecalho2 h4 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  color: #ffffff;
+  padding: 12vh 21.5%;
+  text-align: center;
+  text-decoration: none;
+
+}
+
+
+
+.botao-cardapio:hover {
+  cursor: pointer;
+  background: rgb(255, 255, 255, 0.2);
+}
+
+.botao-cardapio:hover::after {
+  content: ''; 
+  position: absolute; 
+  left: 0;
+  right: 0;
+  bottom: -3px; 
+  height: 5px; 
+  background-color: #ffffff; 
+}
+
+a {
+  color: inherit; 
+  text-decoration: none; 
+}
+
+/* Rectangle 1 */
+.carousel {
+  position: relative;
+
+  width: 80%;
+}
+
+.carousel-item {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+.carousel-item-imagem {
+  width: 100%;
+  max-height: 80vh; 
+  object-fit: contain; 
+  border-radius: 10px;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+/* Rodapé */
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-info p {
+  color: #ffffff;
+  margin: 5px 0;
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.social-media img {
+  width: 24px; 
+  height: auto;
+  margin-right: 10px;
+}
+
+.social-media span {
+  font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  color: #ffffff;
+}
+
+.logo h1 {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  right: 5%;
+  font-weight: 400;
+  font-size: 7vh;
+  color: #ffffff;
+  position: relative;
+}
+
+
+@media (max-width: 768px) {
+
+  body {
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .tela {
+    height: 65vh;
+
+  }
+
+  .cabecalho2 {
+    height: 20vh;
+    gap: 11vh;
+  }
+
+  .cabecalho2 h1 {
+    font-size: 5vh;
+    padding: 0 5vh;
+    line-height: normal;
+    left: 30px;
+  }
+
+  .cabecalho2 h4 {
+    font-size: 19px;
+    padding: 9vh 9%;
+
+  }
+
+
+
+  .caixa-sobre-nos2 {
+    width: 90%;
+    height: 40vh;
+    top: 60%;
+    bottom: auto;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .caixa-sobre-nos2 h1 {
+    font-size: 2rem;
+    padding: 0 20px;
+  }
+
+  .caixa-sobre-nos2 p {
+    font-size: 1rem;
+    padding: 1% 20px;
+  }
+
+  .prev, .next {
+    padding: 0 3px;
+  }
+
+
+  .rodape {
+    display: flex;
+    flex-direction: row; /
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    padding: 10px; 
+  }
+
+  .contact-info, .social-media, .logo {
+     
+    text-align: center; 
+    margin: 5px; 
+  }
+
+  .contact-info p {
+    font-size: 5px; 
+  }
+
+  .social-media span {
+    font-size: 7px;
+  }
+
+  .social-media img {
+    width: 10px; 
+  }
+
+  .logo h1 {
+    font-size: 2vh; 
+  }
+
+
+
+}

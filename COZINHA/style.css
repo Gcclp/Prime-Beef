@@ -1,0 +1,131 @@
+/* Estilo geral do corpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background: black;
+    color: #ffffff;
+}
+
+/* Estilo da container principal */
+.container {
+    display: flex;
+}
+
+/* Estilo da lista de pedidos à esquerda */
+.pedidos {
+    width: 50%;
+    padding-right: 20px;
+}
+
+/* Estilo para cada pedido */
+.pedido {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #000000;
+}
+
+/* Estilo da seção de detalhes à direita */
+.detalhes {
+    width: 50%;
+    padding-left: 20px;
+    border-left: 2px solid #ddd;
+}
+
+/* Estilo do botão */
+button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estilo do botão ao passar o mouse */
+button:hover {
+    background-color: rgba(0, 0, 0, 0.7)
+}
+
+/* Estilo dos itens de detalhes */
+.detalhe-item {
+    margin-bottom: 15px;
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none; /* Esconde o modal por padrão */
+    position: fixed; /* Fica fixo na tela */
+    z-index: 1000; /* Fica acima de outros conteúdos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ocupa toda a largura da tela */
+    height: 100%; /* Ocupa toda a altura da tela */
+    overflow: auto; /* Adiciona rolagem se necessário */
+    background-color: rgba(0, 0, 0, 1); /* Fundo totalmente escuro (para segurança de dados) (IDEAL TER OUTRO HTML SÓ PARA A PÁGINA DE LOGIN) */
+}
+
+.modal-content {
+    color: #000000;
+    background-color: #fefefe;
+    margin: 15% auto; /* Margem centralizada */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do modal */
+    max-width: 500px; /* Largura máxima */
+    position: relative; /* Para posicionar o botão de fechar corretamente */
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo do formulário */
+#login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form label {
+    margin-top: 10px;
+}
+
+#login-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#login-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#login-form button:hover {
+    background-color: #45a049;
+}
+
+/* Desativa o ponteiro para todo o conteúdo da página quando o modal está aberto */
+.modal-open {
+
+    overflow: hidden; /* Remove rolagem na página */
+}

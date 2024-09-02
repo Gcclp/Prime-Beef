@@ -1,0 +1,2747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Beef</title>
+    <link rel="stylesheet" href="sistema.css">
+</head>
+<body>
+    <div class="cabecalho2">
+        <h1><a href="../index">PRIME BEEF </a></h1>
+        <a href="carrinho"><button id="ir-ao-carrinho" class="botao-carrinho" style="display: block;"><img src="cart.png" alt="carrinho"> <span id="cart-count" class="cart-count">0</span></button></a>
+        <div class="subtitles">
+            <h4><a href="cardapio.pdf" target="_blank" class="botao-cardapio">Cardápio</a></h4>
+            <h4><a href="sistema" target="_blank" class="botao-cardapio">Delivery</a></h4>
+        </div>
+    </div>
+
+    <main>
+        <section class="menu-section">
+            <h2>Combos</h2>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal')">
+                    <div class="item-title bold-text">Combo Prime Burg </div>
+                    <div class="item-description">Prime Burg, Batata 200g (Pesadas antes da fritura), Refrigerante lata</div>
+                    <div class="item-price">R$27,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Combo Prime Burg</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Prime Burg, Batata 200g (Pesadas antes da fritura), Refrigerante Lata</p></div>
+                                <div class="preco-item"><p>R$27,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Refrigerantes Lata</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola Zero" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola Zero
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Guaraná Antarctica" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Guaraná Antarctica
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Sprite" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Sprite
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Uva" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Uva
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Laranja" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Laranja
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+                                <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal2')">
+                    <div class="item-title bold-text">Combo Prime Salad </div>
+                    <div class="item-description">Prime Salad, Batata 200g (Pesadas antes da fritura), Refrigerante lata</div>
+                    <div class="item-price">R$29,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal2">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal2')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Combo Prime Salad</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Prime Salad, Batata 200g (Pesadas antes da fritura), Refrigerante Lata</p></div>
+                                <div class="preco-item"><p>R$29,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Refrigerantes Lata</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola Zero" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola Zero
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Guaraná Antarctica" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Guaraná Antarctica
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Sprite" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Sprite
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Uva" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Uva
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Laranja" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Laranja
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+                                <h3>Adicionais</h3>
+                                <div class="additional">
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Queijo Extra (R$4,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Bacon Extra (R$3,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 60g (R$6,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 160g (R$10,00)
+                                        </label>
+                                    </div>
+                                </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal2')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal3')">
+                    <div class="item-title bold-text">Combo Prime Doritos </div>
+                    <div class="item-description">Prime Doritos, Batata 200g (Pesadas antes da fritura), Refrigerante lata</div>
+                    <div class="item-price">R$30,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal3">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal3')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Combo Prime Doritos</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Prime Doritos, Batata 200g (Pesadas antes da fritura), Refrigerante Lata</p></div>
+                                <div class="preco-item"><p>R$30,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Refrigerantes Lata</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola Zero" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola Zero
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Guaraná Antarctica" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Guaraná Antarctica
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Sprite" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Sprite
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Uva" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Uva
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Laranja" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Laranja
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+                                <h3>Adicionais</h3>
+                                <div class="additional">
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Queijo Extra (R$4,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Bacon Extra (R$3,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 60g (R$6,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 160g (R$10,00)
+                                        </label>
+                                    </div>
+                                </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal3')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal4')">
+                    <div class="item-title bold-text">Combo Prime Crispy </div>
+                    <div class="item-description">Prime Crispy, Batata 200g (Pesadas antes da fritura), Refrigerante lata</div>
+                    <div class="item-price">R$32,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal4">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal4')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Combo Prime Crispy</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Prime Crispy, Batata 200g (Pesadas antes da fritura), Refrigerante Lata</p></div>
+                                <div class="preco-item"><p>R$32,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Refrigerantes Lata</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola Zero" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola Zero
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Guaraná Antarctica" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Guaraná Antarctica
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Sprite" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Sprite
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Uva" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Uva
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Laranja" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Laranja
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+                                <h3>Adicionais</h3>
+                                <div class="additional">
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Queijo Extra (R$4,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Bacon Extra (R$3,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 60g (R$6,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 160g (R$10,00)
+                                        </label>
+                                    </div>
+                                </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal4')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal5')">
+                    <div class="item-title bold-text">Combo Prime Vulcan </div>
+                    <div class="item-description">Prime Vulcan, Batata 200g (Pesadas antes da fritura), Refrigerante lata</div>
+                    <div class="item-price">R$34,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal5">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal5')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Combo Prime Vulcan</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Prime Vulcan, Batata 200g (Pesadas antes da fritura), Refrigerante Lata</p></div>
+                                <div class="preco-item"><p>R$34,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Refrigerantes Lata</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola Zero" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola Zero
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Guaraná Antarctica" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Guaraná Antarctica
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Sprite" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Sprite
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Uva" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Uva
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Laranja" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Laranja
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+                                <h3>Adicionais</h3>
+                                <div class="additional">
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Queijo Extra (R$4,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Bacon Extra (R$3,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 60g (R$6,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 160g (R$10,00)
+                                        </label>
+                                    </div>
+                                </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal5')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal6')">
+                    <div class="item-title bold-text">Combo Prime Cheese </div>
+                    <div class="item-description">Prime Cheese, Batata 200g (Pesadas antes da fritura), Refrigerante lata</div>
+                    <div class="item-price">R$38,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal6">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal6')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Combo Prime Cheese</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Prime Cheese, Batata 200g (Pesadas antes da fritura), Refrigerante Lata</p></div>
+                                <div class="preco-item"><p>R$38,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Refrigerantes Lata</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola Zero" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola Zero
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Guaraná Antarctica" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Guaraná Antarctica
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Sprite" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Sprite
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Uva" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Uva
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Laranja" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Laranja
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+                                <h3>Adicionais</h3>
+                                <div class="additional">
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Queijo Extra (R$4,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Bacon Extra (R$3,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 60g (R$6,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 160g (R$10,00)
+                                        </label>
+                                    </div>
+                                </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal6')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal7')">
+                    <div class="item-title bold-text">Combo Prime Duplo Salad </div>
+                    <div class="item-description">Prime Duplo Salad, Batata 200g (Pesadas antes da fritura), Refrigerante lata</div>
+                    <div class="item-price">R$38,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal7">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal7')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Combo Prime Duplo Salad</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Prime Duplo Salad, Batata 200g (Pesadas antes da fritura), Refrigerante Lata</p></div>
+                                <div class="preco-item"><p>R$38,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Refrigerantes Lata</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola Zero" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola Zero
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Guaraná Antarctica" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Guaraná Antarctica
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Sprite" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Sprite
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Uva" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Uva
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Laranja" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Laranja
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+                                <h3>Adicionais</h3>
+                                <div class="additional">
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Queijo Extra (R$4,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Bacon Extra (R$3,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 60g (R$6,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 160g (R$10,00)
+                                        </label>
+                                    </div>
+                                </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal7')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal8')">
+                    <div class="item-title bold-text">Combo Prime Duplo Bacon </div>
+                    <div class="item-description">Prime Duplo Bacon, Batata 200g (Pesadas antes da fritura), Refrigerante lata</div>
+                    <div class="item-price">R$38,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal8">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal8')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Combo Prime Duplo Bacon</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Prime Duplo Bacon, Batata 200g (Pesadas antes da fritura), Refrigerante Lata</p></div>
+                                <div class="preco-item"><p>R$38,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Refrigerantes Lata</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Coca-Cola Zero" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Coca-Cola Zero
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Guaraná Antarctica" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Guaraná Antarctica
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Sprite" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Sprite
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Uva" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Uva
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="radio" name="refrigerante" class="additional-radio" data-name="Fanta Laranja" value="0.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Fanta Laranja
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+                                <h3>Adicionais</h3>
+                                <div class="additional">
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Queijo Extra (R$4,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Bacon Extra (R$3,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 60g (R$6,00)
+                                        </label>
+                                    </div>
+                                    <div class="additional-item">
+                                        <label>
+                                            <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                            Carne Extra 160g (R$10,00)
+                                        </label>
+                                    </div>
+                                </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal8')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+        </section>
+
+
+        <section class="menu-section">
+            <h2>Linha Prime</h2>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal9')">
+                    <div class="item-title bold-text">Prime Burg</div>
+                    <div class="item-description">Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar</div>
+                    <div class="item-price">R$17,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal9">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal9')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Prime Burg</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar</p></div>
+                                <div class="preco-item"><p>R$17,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal9')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal10')">
+                    <div class="item-title bold-text">Prime Salad</div>
+                    <div class="item-description">Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar, Alface, Tomate, Cebola Roxa</div>
+                    <div class="item-price">R$19,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal10">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal10')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Prime Salad</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar, Alface, Tomate, Cebola Roxa</p></div>
+                                <div class="preco-item"><p>R$19,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal10')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal11')">
+                    <div class="item-title bold-text">Prime Doritos</div>
+                    <div class="item-description">Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar, Bacon, Doritos</div>
+                    <div class="item-price">R$21,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal11">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal11')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Prime Doritos</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar, Bacon, Doritos</p></div>
+                                <div class="preco-item"><p>R$21,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal11')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal12')">
+                    <div class="item-title bold-text">Prime Crispy</div>
+                    <div class="item-description">Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar, Alface, Onion Rings, Picles e Barbecue</div>
+                    <div class="item-price">R$23,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal12">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal12')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Prime Crispy</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar, Alface, Onion Rings, Picles e Barbecue</p></div>
+                                <div class="preco-item"><p>R$23,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal12')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal13')">
+                    <div class="item-title bold-text">Prime Vulcan</div>
+                    <div class="item-description">Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar, Cheddar Cremoso e Onion Rings</div>
+                    <div class="item-price">R$25,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal13">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal13')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Prime Vulcan</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar, Cheddar Cremoso e Onion Rings</p></div>
+                                <div class="preco-item"><p>R$25,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal13')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal14')">
+                    <div class="item-title bold-text">Prime Cheese</div>
+                    <div class="item-description">Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar, Disco de queijo empanado (100g) e Bacon</div>
+                    <div class="item-price">R$29,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal14">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal14')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Prime Cheese</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão Brioce, Hamburguer artesanal de 160g, Queijo Cheddar, Disco de queijo empanado (100g) e Bacon</p></div>
+                                <div class="preco-item"><p>R$29,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal14')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal15')">
+                    <div class="item-title bold-text">Prime Duplo Bacon</div>
+                    <div class="item-description">Pão Brioce, 2 Hamburgueres artesanal de 160g, Queijo Cheddar e Bacon</div>
+                    <div class="item-price">R$29,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal15">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal15')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Prime Duplo Bacon</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão Brioce, 2 Hamburgueres artesanal de 160g, Queijo Cheddar e Bacon</p></div>
+                                <div class="preco-item"><p>R$29,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal15')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal16')">
+                    <div class="item-title bold-text">Prime Duplo Salad</div>
+                    <div class="item-description">Pão Brioce, 2 Hamburgueres artesanal de 160g, Queijo Cheddar, Alface, Tomate, Cebola Roxa</div>
+                    <div class="item-price">R$29,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal16">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal16')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Prime Duplo Salad</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão Brioce, 2 Hamburgueres artesanal de 160g, Queijo Cheddar, Alface, Tomate, Cebola Roxa</p></div>
+                                <div class="preco-item"><p>R$29,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal16')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2>Linha Junior</h2>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal17')">
+                    <div class="item-title bold-text">Junior Burguer</div>
+                    <div class="item-description">Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo e Presunto</div>
+                    <div class="item-price">R$12,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal17">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal17')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Junior Burguer</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo e Presunto</p></div>
+                                <div class="preco-item"><p>R$12,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal17')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal18')">
+                    <div class="item-title bold-text">Junior Salad</div>
+                    <div class="item-description">Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa</div>
+                    <div class="item-price">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal18">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal18')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Junior Salad</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa</p></div>
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal18')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal19')">
+                    <div class="item-title bold-text">Junior Egg</div>
+                    <div class="item-description">Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa, Ovo Frito</div>
+                    <div class="item-price">R$14,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal19">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal19')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Junior Egg</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Tomate, Cebola Roxa, Ovo Frito</p></div>
+                                <div class="preco-item"><p>R$14,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal19')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal20')">
+                    <div class="item-title bold-text">Junior Frango</div>
+                    <div class="item-description">Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa e Frango Desfiado</div>
+                    <div class="item-price">R$15,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal20">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal20')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Junior Frango</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa e Frango Desfiado</p></div>
+                                <div class="preco-item"><p>R$15,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal20')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal21')">
+                    <div class="item-title bold-text">Junior Bacon</div>
+                    <div class="item-description">Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa, Bacon</div>
+                    <div class="item-price">R$15,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal21">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal21')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Junior Bacon</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa, Bacon</p></div>
+                                <div class="preco-item"><p>R$15,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal21')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal22')">
+                    <div class="item-title bold-text">Junior Calabresa</div>
+                    <div class="item-description">Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa, Calabresa</div>
+                    <div class="item-price">R$15,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal22">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal22')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Junior Calabresa</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão de Hamburguer, Hamburguer artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa, Calabresa</p></div>
+                                <div class="preco-item"><p>R$15,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal22')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal23')">
+                    <div class="item-title bold-text">Junior Tudo</div>
+                    <div class="item-description">Pão de Hamburguer, Hamburgueres artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa, Calabresa, Frango Desfiado, Bacon e Ovo Frito</div>
+                    <div class="item-price">R$19,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal23">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal23')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Junior Tudo</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pão de Hamburguer, Hamburgueres artesanal de 60g, Queijo, Presunto, Milho, Ervilha, Alface, Tomate, Cebola Roxa, Calabresa, Frango Desfiado, Bacon e Ovo Frito</p></div>
+                                <div class="preco-item"><p>R$19,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Adicionais</h3>
+                            <div class="additional">
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Queijo" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Queijo Extra (R$4,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Bacon" value="4.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Bacon Extra (R$3,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 60g" value="6.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 60g (R$6,00)
+                                    </label>
+                                </div>
+                                <div class="additional-item">
+                                    <label>
+                                        <input type="checkbox" class="additional-checkbox" data-name="Carne 160g" value="10.00" onchange="updateTotal(this.closest('.modal-content'))">
+                                        Carne Extra 160g (R$10,00)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal23')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Outros itens de menu -->
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2>Pasteis Salgados</h2>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal24')">
+                    <div class="item-title bold-text">Pastel de Queijo</div>
+                    <div class="item-price bold-text">R$11,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal24">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal24')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Queijo</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$11,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal24')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal25')">
+                    <div class="item-title bold-text">Pastel de Carne</div>
+                    <div class="item-price bold-text">R$11,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal25">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal25')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Carne</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$11,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal25')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal26')">
+                    <div class="item-title bold-text">Pastel de Carne com Queijo</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal26">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal26')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Carne com Queijo</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal26')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal27')">
+                    <div class="item-title bold-text">Pastel de Carne com Ovo</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal27">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal27')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Carne com Ovo</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal27')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal28')">
+                    <div class="item-title bold-text">Pastel de Carne com Bacon</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal28">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal28')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Carne com Bacon</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal28')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal29')">
+                    <div class="item-title bold-text">Pastel de Frango</div>
+                    <div class="item-price bold-text">R$11,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal29">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal29')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Frango</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$11,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal29')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal30')">
+                    <div class="item-title bold-text">Pastel de Frango com Catupiry</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal30">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal30')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Frango com Catupiry</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal30')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal31')">
+                    <div class="item-title bold-text">Pastel de Frango com Queijo</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal31">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal31')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Frango com Queijo</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal31')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal32')">
+                    <div class="item-title bold-text">Pastel de Bacon e Queijo</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal32">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal32')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Bacon e Queijo</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal32')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="menu-section">
+            <h2>Pasteis Doces</h2>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal33')">
+                    <div class="item-title bold-text">Pastel de Chocolate Preto</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal33">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal33')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Chocolate Preto</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal33')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal34')">
+                    <div class="item-title bold-text">Pastel de Chocolate Branco</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal34">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal34')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Chocolate Branco</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$11,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal34')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal35')">
+                    <div class="item-title bold-text">Pastel de Dois Amores</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal35">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal35')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Dois Amores</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal35')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal36')">
+                    <div class="item-title bold-text">Pastel de Prestigio Branco</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal36">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal36')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Prestigio Preto</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal36')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal37')">
+                    <div class="item-title bold-text">Pastel de Prestigio Preto</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal37">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal37')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Prestigio Preto</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal37')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal38')">
+                    <div class="item-title bold-text">Pastel de Banana com Canela</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal38">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal38')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Pastel de Banana com Canela</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal38')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="menu-section">
+            <h2>Porções</h2>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal39')">
+                    <div class="item-title bold-text">Porção de Fritas 100g</div>
+                    <div class="item-description">(Pesadas antes da Fritura)</div>
+                    <div class="item-price bold-text">R$7,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal39">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal39')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Porção de Fritas 100g</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pesadas antes da Fritura</p></div>
+                                <div class="preco-item"><p>R$7,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal39')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal40')">
+                    <div class="item-title bold-text">Porção de Fritas 400g</div>
+                    <div class="item-description">(Pesadas antes da Fritura)</div>
+                    <div class="item-price bold-text">R$17,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal40">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal40')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Porção de Fritas 400g</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pesadas antes da Fritura</p></div>
+                                <div class="preco-item"><p>R$17,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal40')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal41')">
+                    <div class="item-title bold-text">Porção de Fritas com Bacon e Cheddar 400g</div>
+                    <div class="item-description">(Pesadas antes da Fritura)</div>
+                    <div class="item-price bold-text">R$23,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal41">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal41')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Porção de Fritas com Bacon e Cheddar 400g</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pesadas antes da Fritura</p></div>
+                                <div class="preco-item"><p>R$23,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal41')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal42')">
+                    <div class="item-title bold-text">Porção de Onion Rings 200g</div>
+                    <div class="item-description">(Pesadas antes da Fritura)</div>
+                    <div class="item-price bold-text">R$13,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal42">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal42')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Porção de Onion Rings 200g</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pesadas antes da Fritura</p></div>
+                                <div class="preco-item"><p>R$13,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal42')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal43')">
+                    <div class="item-title bold-text">Porção de Calabresa 400g</div>
+                    <div class="item-description">(Pesadas antes da Fritura)</div>
+                    <div class="item-price bold-text">R$17,99</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal43">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal43')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Porção de Calabresa 200g</h2>
+                            <div class="info">
+                                <div class="desc-item"><p>Pesadas antes da Fritura</p></div>
+                                <div class="preco-item"><p>R$17,99</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal43')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section> 
+
+        <section class="menu-section">
+            <h2>Bebidas</h2>
+            <div class="menu-section-h3">Refrigerantes Latas</div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal44')">
+                    <div class="item-title bold-text">Coca-Cola Lata</div>
+                    <div class="item-price bold-text">R$5,00</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal44">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal44')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Coca-Cola Lata</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$5,00</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal44')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal45')">
+                    <div class="item-title bold-text">Coca-Cola Zero Lata</div>
+                    <div class="item-price bold-text">R$5,00</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal45">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal45')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Coca-Cola Zero Lata</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$5,00</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal45')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal46')">
+                    <div class="item-title bold-text">Guaraná Antarctica Lata</div>
+                    <div class="item-price bold-text">R$5,00</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal46">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal46')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Guaraná Antarctica</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$5,00</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal46')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal47')">
+                    <div class="item-title bold-text">Sprite Lata</div>
+                    <div class="item-price bold-text">R$5,00</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal47">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal47')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Sprite Lata</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$5,00</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal47')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal48')">
+                    <div class="item-title bold-text">Fanta Uva Lata</div>
+                    <div class="item-price bold-text">R$5,00</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal48">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal48')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Fanta Uva Lata</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$5,00</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal48')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal49')">
+                    <div class="item-title bold-text">Fanta Laranja Lata</div>
+                    <div class="item-price bold-text">R$5,00</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal49">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal49')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Fanta Laranja Lata</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$5,00</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal49')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="menu-section">
+            <div class="menu-section-h3">Refrigerantes 600ml</div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal50')">
+                    <div class="item-title bold-text">Coca-Cola 600ml</div>
+                    <div class="item-price bold-text">R$8,00</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal50">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal50')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Coca-Cola 600ml</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$8,00</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal50')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal51')">
+                    <div class="item-title bold-text">Guaraná Antarctica 600ml</div>
+                    <div class="item-price bold-text">R$8,00</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal51">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal51')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Guaraná Antarctica 600ml</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$8,00</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal51')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="menu-section">
+            <div class="menu-section-h3">Refrigerantes 2L</div>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="openModal('myModal52')">
+                    <div class="item-title bold-text">Coca-Cola 2L</div>
+                    <div class="item-price bold-text">R$15,00</div>
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="myModal52">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('myModal52')">&times;</span>
+                        <div class="modal-body">
+                            <h2>Coca-Cola 2L</h2>
+                            <div class="info">
+                                <div class="preco-item"><p>R$15,00</p></div>
+                                <div class="counter">
+                                    <button onclick="decrement(this)">-</button>
+                                    <span class="item-count">1</span>
+                                    <button onclick="increment(this)">+</button>
+                                </div>
+                            </div>
+
+                            <h3>Observações</h3>
+                            <textarea class="observations" rows="4" cols="50"></textarea>
+                            
+                            <div class="button-container">
+                                <button class="botao-add-carrinho" onclick="addToCart(event, 'myModal52')">Adicionar ao Carrinho <span class="total-preco">Total: R$0,00</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <div class="contact-info">
+            <p>Telefone: (41) 99989-6520</p>
+            <p>Horário de Atendimento: Terça a Domingo das 18:00 às 23:00</p>
+            <p>Endereço: Rua Margarida Possebom da Cruz, 43 - Santo Antônio </p>
+        </div>
+
+        <div class="logo">
+            <h1><a href="../index">PRIME BEEF </a></h1>
+        </div>
+
+        <div class="social-media">
+            <img src="instagram (1).png" alt="Instagram">
+            <span>@primebeef_hamburgueria</span>
+        </div>
+    </footer>
+
+    <!-- Adicionando o botão Ir ao Carrinho -->
+
+
+    <script src="script.js"></script>
+</body>
+</html>

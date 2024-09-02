@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Modal de Login -->
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</div>
+
+
+    <h1>Pedidos</h1>
+    <div class="container">
+        <div id="pedidos" class="pedidos"></div>
+        <div id="detalhes" class="detalhes"></div>
+    </div>
+
+    <!-- Elemento de áudio para notificação -->
+    <audio id="notification-sound" src="campainha.mp3" preload="auto" volume="1.0"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
