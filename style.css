@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-
 body {
   margin: 0;
   padding: 0;
@@ -29,66 +28,63 @@ html {
   background-size: cover;
 }
 
-/* CABEÇALHO */
 .cabecalho2 {
   display: flex;
-  box-sizing: border-box;
-  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 27vh;
-  left: 0;
-  top: 0;
   background: #000000;
   border: 1px solid #000000;
-
+  text-align: center;
 }
 
 .cabecalho2 h1 {
   font-family: 'Playfair Display', serif;
-
-  text-align: center;
   font-weight: 400;
-  font-size: 10vh;
+  font-size: 5vw;
+  /* Responsivo */
   line-height: 1;
   color: #ffffff;
-  position: absolute;
-  justify-content: center;
+  margin-bottom: 1vw;
+}
+
+.cabecalho2 .subtitles {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: 0 75vh;
-  white-space: nowrap;
+  width: 100%;
+  justify-content: space-around;
+}
 
-
+.cabecalho2 .subtitles h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 2vw;
+  /* Responsivo */
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0.5rem 0;
+  /* Espaçamento entre subtítulos */
 }
 
 .botao-cardapio {
   display: inline-block;
-  padding: 8px 5%;
-  background-color: #000000; 
-  color: #ffffff; 
+  padding: 0.5rem 1rem;
+  background-color: #000000;
+  color: #ffffff;
   text-decoration: none;
   border: none;
   border-radius: 4px;
+  margin: 1rem 0;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
   position: relative;
 }
 
-.cabecalho2 h4 {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 36px;
-  line-height: 44px;
-  color: #ffffff;
-  padding: 12vh 21.5%;
-  text-align: center;
-  text-decoration: none;
-
-}
-
-
-
 .botao-cardapio:hover {
   cursor: pointer;
-  background: rgb(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .botao-cardapio:hover::after {
@@ -99,6 +95,7 @@ html {
   bottom: -3px; 
   height: 5px; 
   background-color: #ffffff; 
+  border-radius: 4px; /* Para suavizar a linha */
 }
 
 a {
@@ -109,7 +106,6 @@ a {
 /* Rectangle 1 */
 .carousel {
   position: relative;
-
   width: 80%;
 }
 
@@ -156,7 +152,6 @@ a {
     background-color: rgba(0,0,0,0.8);
 }
 
-
 /* Rodapé */
 .rodape {
   display: flex;
@@ -170,6 +165,7 @@ a {
 .contact-info p {
   color: #ffffff;
   margin: 5px 0;
+  font-size: 1.5em;
 }
 
 .social-media {
@@ -179,13 +175,13 @@ a {
 }
 
 .social-media img {
-  width: 24px; 
+  width: 2.5vw;
   height: auto;
   margin-right: 10px;
 }
 
 .social-media span {
-  font-size: 20px;
+  font-size: 1.5em;
   font-family: 'Playfair Display', serif;
   color: #ffffff;
 }
@@ -200,95 +196,54 @@ a {
   position: relative;
 }
 
+@media (max-width: 950px) {
 
-@media (max-width: 768px) {
-
-  body {
-    width: 100%;
-    height: 100%;
-
+  .cabecalho2 h1 {
+    font-size: 7vw;
   }
 
-  .tela {
-    height: 65vh;
-
-  }
-
-  .cabecalho2 {
-    height: 20vh;
-    gap: 11vh;
+  .botao-cardapio {
+    font-size: 3vw;
   }
 
   .cabecalho2 h1 {
-    font-size: 5vh;
-    padding: 0 5vh;
-    line-height: normal;
-    left: 30px;
-  }
-
-  .cabecalho2 h4 {
-    font-size: 19px;
-    padding: 9vh 9%;
-
-  }
-
-
-
-  .caixa-sobre-nos2 {
-    width: 90%;
-    height: 40vh;
-    top: 60%;
-    bottom: auto;
-    padding: 20px;
-    border-radius: 20px;
-  }
-
-  .caixa-sobre-nos2 h1 {
-    font-size: 2rem;
-    padding: 0 20px;
-  }
-
-  .caixa-sobre-nos2 p {
-    font-size: 1rem;
-    padding: 1% 20px;
-  }
-
-  .prev, .next {
-    padding: 0 3px;
-  }
-
-
-  .rodape {
-    display: flex;
-    flex-direction: row; /
-    justify-content: space-between; 
-    align-items: center; 
-    flex-wrap: wrap; 
-    padding: 10px; 
-  }
-
-  .contact-info, .social-media, .logo {
-     
-    text-align: center; 
-    margin: 5px; 
-  }
-
-  .contact-info p {
-    font-size: 5px; 
-  }
-
-  .social-media span {
-    font-size: 7px;
+    margin-top: 20px;
   }
 
   .social-media img {
-    width: 10px; 
+    width: 3vw;
+  }
+
+  .contact-info p, .social-media span {
+    font-size: 1.3vw;
+  }
+}
+
+@media (max-width: 570px) {
+
+  .cabecalho2 h1 {
+    font-size: 7vw;
+  }
+
+  .botao-cardapio {
+    font-size: 3vw;
+  }
+
+  .social-media img {
+    width: 5vw;
+  }
+
+  .social-media span {
+    font-size: 3vw;
+  }
+
+  .contact-info p  {
+    font-size: 3vw;
   }
 
   .logo h1 {
-    font-size: 2vh; 
+    font-size: 5vh;
   }
 
-
-
 }
+
