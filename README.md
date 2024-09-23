@@ -1,2 +1,2 @@
 # Prime-Beef
-A Delivery Sistem
+Um sistema de Delivery integrado com o MySQL, para restaurantes e lanchonetes.
