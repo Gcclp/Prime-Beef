@@ -34,8 +34,8 @@ html {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: #000000;
-  border: 1px solid #000000;
+  background: #3c3c3c;
+  border: 1px solid #3c3c3c;
   text-align: center;
 }
 
@@ -71,7 +71,7 @@ html {
 .botao-cardapio {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #000000;
+  background-color: #3c3c3c ;
   color: #ffffff;
   text-decoration: none;
   border: none;
@@ -157,27 +157,49 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000;
+  background-color: #3c3c3c;
   padding: 20px;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 
-.contact-info p {
-  color: #ffffff;
-  margin: 5px 0;
-  font-size: 1.5em;
-}
-
-.social-media {
+.contact-info {
   display: flex;
+  flex-direction: row;
+  color: #ffffff;
+  margin: 10px 0;
+  font-size: 1.5em;
+  justify-content: space-evenly;
+  width: 80%;
+}
+
+.telefone {
+  display: flex;
+  flex-direction: row;
+  width: 26%;
+  justify-content: center;
   align-items: center;
-  margin: 5px 0;
+  gap: 10px;
+}
+
+.telefone p {
+  margin-left: 10px;
+}
+
+.imagem-rodape {
+  width: 3vw;
+  height: auto;
 }
 
 .social-media img {
-  width: 2.5vw;
+  width: 3vw;
   height: auto;
-  margin-right: 10px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.social-media img:hover {
+  background: #888888;
 }
 
 .social-media span {
@@ -210,12 +232,35 @@ a {
     margin-top: 20px;
   }
 
-  .social-media img {
-    width: 3vw;
+  .rodape {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .contact-info p, .social-media span {
-    font-size: 1.3vw;
+  .contact-info {
+    flex-direction: column;
+    align-items: flex-start ;
+  }
+
+  .telefone {
+    width: 100%;
+    justify-content: flex-start;
+    margin: 10px;
+  }
+
+  .imagem-rodape {
+    width: 5vw;
+  }
+
+  .contact-info p {
+    font-size: 0.8em;
+    margin: 10px 0;
+  }
+
+
+  .social-media img {
+    width: 5vw;
+    margin: 0px 10px;
   }
 }
 
@@ -229,20 +274,35 @@ a {
     font-size: 3vw;
   }
 
-  .social-media img {
+  .rodape {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    align-items: flex-start ;
+  }
+
+  .telefone {
+    width: 100%;
+    justify-content: flex-start;
+    margin: 10px;
+  }
+
+  .imagem-rodape {
     width: 5vw;
   }
 
-  .social-media span {
-    font-size: 3vw;
+  .contact-info p {
+    font-size: 0.8em;
+    margin: 10px 0;
   }
 
-  .contact-info p  {
-    font-size: 3vw;
-  }
 
-  .logo h1 {
-    font-size: 5vh;
+  .social-media img {
+    width: 5vw;
+    margin: 0px 10px;
   }
 
 }
